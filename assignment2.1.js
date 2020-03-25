@@ -4087,9 +4087,10 @@
     }
 ]
 
-var pokemonSearch = window.prompt('Write name of pokemon you want to have details:')
-for(i=0;i<152;i++){
-    if(pokemonSearch == pokemon[i].name)
+var checkNextEvolution = function(nameCheck, allPokemon){
+i=0; k=0;
+for(i=0;i<pokemon.length;i++){
+    if(nameCheck == pokemon[i].name)
         {
             k=1;
             console.log("Pokemon Name:", pokemon[i].name)
@@ -4113,4 +4114,6 @@ for(i=0;i<152;i++){
 if(k != 1){
     console.log("Please input correct name")
 }
-  
+}
+var pokemonSearch = window.prompt('Write name of pokemon that you want to know details:')
+checkNextEvolution(pokemonSearch, pokemon)

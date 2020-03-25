@@ -4081,33 +4081,23 @@
       ]
     }
 ]
+
+var checkNextEvolution = function(nameCheck, allPokemon){
 i=0; k=0; m=0;
-var pokemonSearch = window.prompt('Write weakness that you want to know which pokemon contains:')
-for(i=0;i<152;i++){
-    for(j=0;j<7;j++){
-        if(pokemonSearch == pokemon[i].weaknesses[j])
+for(i=0;i<pokemon.length;i++){
+    for(j=0;j<pokemon[i].weaknesses.length;j++){
+        if(nameCheck == pokemon[i].weaknesses[j])
         {
-            k=1;
-            m++;
+            k=1; m++;
             console.log("Pokemon Name:", m , pokemon[i].name)
-            // console.log("Pokemon Id:", pokemon[i].id)
-            // console.log("Pokemon Num:", pokemon[i].num)
-            // console.log("Pokemon Image:", pokemon[i].img)
-            // console.log("Pokemon type:", pokemon[i].type)
-            // console.log("Pokemon height:", pokemon[i].height)
-            // console.log("Pokemon weight:", pokemon[i].weight)
-            // console.log("Pokemon Candy:", pokemon[i].candy)
-            // console.log("Pokemon Egg:", pokemon[i].egg)
-            // console.log("Pokemon spawn chance:", pokemon[i].spawn_chance)
-            // console.log("Pokemon Average Spawns:", pokemon[i].avg_spawns)
-            // console.log("Pokemon Spawn time:", pokemon[i].spawn_time)
-            // console.log("Pokemon Multipliers:", pokemon[i].multipliers)
-            // console.log("Pokemon weakness:", pokemon[i].weaknesses)
         }    
     }    
 }
 
-if(k < 1){
+if(k != 1){
     console.log("Please input correct name")
 }
-  
+}
+ 
+var pokemonSearch = window.prompt('Write weakness that you want to know which pokemon contains:')
+checkNextEvolution(pokemonSearch,pokemon)

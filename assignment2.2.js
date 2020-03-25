@@ -4077,20 +4077,22 @@
     }
 ]
 
-i=0; j=0; m=0; k=0;
-var pokemonSearch = window.prompt('Write next evolution name that you want to know which pokemon contains:')
-for(i=0;i<pokemon.length;i++){
-  if("next_evolution" in pokemon[i]){
-    for(j=0;j<pokemon[i].next_evolution.length;j++){
-      if(pokemonSearch == pokemon[i].next_evolution[j].name)
-      {
-        m++; k=1;
-        console.log("Pokemon Name:", m , pokemon[i].name)
-      }   
+var checkNextEvolution = function(nameCheck, allPokemon){
+  i=0; k=0; m=0; p=0;
+    for(i=0;i<pokemon.length;i++){
+      if("next_evolution" in pokemon[i]){
+        for(j=0;j<pokemon[i].next_evolution.length;j++){
+          if(nameCheck == pokemon[i].next_evolution[j].name)
+          {
+          m++; k=1;
+          console.log("Pokemon Name:", m , pokemon[i].name)
+          }   
+        }
+      }
     }
+    if(k != 1){
+    console.log("Please input correct data")
+    }   
   }
-}   
-
-if(k != 1){
-    console.log("Please input correct name")
-}
+  var pokemonSearch = window.prompt('Write next evolution name that you want to know which pokemon contains:')
+  checkNextEvolution(pokemonSearch, pokemon)
