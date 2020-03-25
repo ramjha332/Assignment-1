@@ -136,25 +136,25 @@ var pokemon =
       }
 ]
 
+// var checkNextEvolution = function(nameCheck, allPokemon){
 i=0; k=0; m=0; p=0;
-var pokemonSearch = window.prompt('Write weakness that you want to know which pokemon contains:')
- 
+var pokemonSearch = window.prompt('Write next evolution name that you want to know which pokemon contains:')
 for(i=0;i<pokemon.length;i++){
-    if(pokemon[i].next_evolution.length > 0){
-        for(j=0;j<pokemon[i].next_evolution.length;j++){
-            if(pokemonSearch == pokemon[i].next_evolution[j].name)
-            {
-            m++;
-            console.log("Pokemon Name:", m , pokemon[i].name)
-            }
-            console.log(i, j)   
-        }
+  if("next_evolution" in pokemon[i]){
+    for(j=0;j<pokemon[i].next_evolution.length;j++){
+      if(pokemonSearch == pokemon[i].next_evolution[j].name)
+      {
+        m++;
+        console.log("Pokemon Name:", m , pokemon[i].name)
+      }
+      // console.log(i, j)   
     }
-    else if(pokemon[i].next_evolution.length == 0 && p == 0){
-        p=1; j=0;
-    }
-}
-
-// if(k != 1){
-//     console.log("Please input correct name")
+  }
+  // else{
+  //   i++
+  // }
+}   
 // }
+
+
+// checkNextEvolution(pokemonSearch, pokemon)
