@@ -4083,19 +4083,24 @@
 ]
 
 var checkNextEvolution = function(nameCheck, allPokemon){
-i=0; k=0; m=0;
+var pokemonList = [];
+i=0; k=0; j=0;
 for(i=0;i<pokemon.length;i++){
     for(j=0;j<pokemon[i].weaknesses.length;j++){
-        if(nameCheck == pokemon[i].weaknesses[j])
+        if(nameCheck.toLowerCase() == pokemon[i].weaknesses[j].toLowerCase())
         {
-            k=1; m++;
-            console.log("Pokemon Name:", m , pokemon[i].name)
+          pokemonList.push(pokemon[i].name)
+          k=1;
         }    
     }    
 }
 
+if((pokemon.length)-i == 0 && k ==1){
+    console.log("Pokemons who have " +nameCheck+ " weakness are " +pokemonList)
+}
+
 if(k != 1){
-    console.log("Please input correct name")
+    console.log("Pokemons with " +nameCheck+ " weakness not found")
 }
 }
  

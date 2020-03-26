@@ -4090,7 +4090,7 @@
 var checkNextEvolution = function(nameCheck, allPokemon){
 i=0; k=0;
 for(i=0;i<pokemon.length;i++){
-    if(nameCheck == pokemon[i].name)
+    if(nameCheck.toLowerCase() == pokemon[i].name.toLowerCase())
         {
             k=1;
             console.log("Pokemon Name:", pokemon[i].name)
@@ -4112,7 +4112,7 @@ for(i=0;i<pokemon.length;i++){
 }
 
 if(k != 1){
-    console.log("Please input correct name")
+    console.log("Pokemons with '"+nameCheck+"' name not found")
 }
 }
 var pokemonSearch = window.prompt('Write name of pokemon that you want to know details:')

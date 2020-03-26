@@ -4078,20 +4078,26 @@
 ]
 
 var checkNextEvolution = function(nameCheck, allPokemon){
-  i=0; k=0; m=0; p=0;
+  var pokemonList = [];
+  i=0; k=0; j=0;
     for(i=0;i<pokemon.length;i++){
       if("next_evolution" in pokemon[i]){
         for(j=0;j<pokemon[i].next_evolution.length;j++){
-          if(nameCheck == pokemon[i].next_evolution[j].name)
+          if(nameCheck.toLowerCase() == pokemon[i].next_evolution[j].name.toLowerCase())
           {
-          m++; k=1;
-          console.log("Pokemon Name:", m , pokemon[i].name)
+            pokemonList.push(pokemon[i].name)
+            k=1;
           }   
         }
       }
     }
+
+    if((pokemon.length)-i == 0 && k ==1){
+      console.log("Pokemons which contains '" +nameCheck+ "' in their next evolution are '" +pokemonList+ "'") 
+      }
+
     if(k != 1){
-    console.log("Please input correct data")
+    console.log("Np pokemons have " +nameCheck+ " next evolution")
     }   
   }
   var pokemonSearch = window.prompt('Write next evolution name that you want to know which pokemon contains:')
